@@ -47,6 +47,12 @@ EOF
 python3 chaincode/encode_chaincode.py --json chaincode/my_entity.json
 
 ```
+## 🧩 Submodules
+
+- [`chaincode/`](./chaincode) – Identity encoding + reference hash generator
+- [`eventcode/`](./eventcode) – (Coming soon) Tuple generator for actions/events
+- [`docs/`](./docs) – Format specs, system architecture
+
 
 ## 🔒 Security Note
 

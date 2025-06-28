@@ -29,8 +29,23 @@
 ## 🛠️ Get Started
 
 ```bash
-# Create a chaincode from JSON
-python3 chaincode/encode_chaincode.py --json jdplumbing.json
+# Generate a chaincode from JSON
+
+# 1. Create a descriptor file (example):
+cat <<EOF > chaincode/my_entity.json
+{
+  "entity_type": "person",
+  "org_name": "Example Co.",
+  "ein": "00-0000000",
+  "license": "ABC123",
+  "state": "CA",
+  "address": "1234 Sample St, Cityville, CA 90210"
+}
+EOF
+
+# 2. Run the encoder
+python3 chaincode/encode_chaincode.py --json chaincode/my_entity.json
+
 ```
 
 ## 🔒 Security Note

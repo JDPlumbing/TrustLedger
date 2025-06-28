@@ -1,20 +1,42 @@
-INSERT INTO chaincodes (
-  chaincode_ref,
-  type,
-  full_blob,
-  metadata,
-  device_binding,
-  biometric_hash,
-  created_at,
-  updated_at
-)
-VALUES (
-  '9753ec1f', -- your generated 4-byte chaincode ref
-  'org',      -- entity type
-  DECODE('010100005f5457c99cdec6d7568b17d9e1465f4de94d343200000000000000000000000000000000ffffffffffffffff000000007b2c7ad90000000000000000', 'hex'), -- 64-byte blob
-  '{"org_name": "JD Plumbing", "ein": "33-4243369", "license": "CFC#1428158", "state": "FL", "address": "11351 NW 31st Street, Sunrise, FL 33323"}',
-  NULL,
-  NULL,
-  NOW(),
-  NOW()
-);
+# 🧾 TrustLedger: Tuple-Based Trust Economy
+
+## 🌐 Overview
+**TrustLedger** is a protocol for making effort visible, trust verifiable, and skills transferable. It uses compact, signed tuples to log who did what, when, and why — without relying on centralized credentials or revealing personal information.
+
+## 📦 Structure
+
+- `chaincode/`: Tools to generate, encode, and reference identity blobs (chaincodes)
+- `eventcode/`: Action tuples that link actors, events, intent, and outcomes
+- `db/`: Schema files, mapping tables, enums, and registries
+- `docs/`: Vision, architecture, format specs, and design thinking
+- `poc/`: Proofs of concept and local test utilities
+
+## 📌 Highlights
+
+- 64-byte identity chaincodes
+- 32-byte action tuples
+- 4-byte hashed references for linking and proof
+- Supports offline-first logging and delayed sync
+- Enables pseudonymous proof of effort, skill, and presence
+
+## 🧠 Design Philosophy
+
+- Proof of effort > proof of permission
+- Trying counts — outcomes just provide context
+- Trust is earned by action, not application
+- Identity is optional, but reputation is inevitable
+
+## 🛠️ Get Started
+
+```bash
+# Create a chaincode from JSON
+python3 chaincode/encode_chaincode.py --json jdplumbing.json
+```
+
+## 🔒 Security Note
+
+Chaincodes do not store PPID. They are only as identifiable as you choose to make them. Only the 4-byte hash is shared in tuples unless otherwise authorized.
+
+---
+
+Built by plumbers, nerds, and anyone tired of proving themselves to paper.
